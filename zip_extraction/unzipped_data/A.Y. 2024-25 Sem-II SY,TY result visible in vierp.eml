@@ -1,0 +1,341 @@
+Delivered-To: sneha.katole23@vit.edu
+Received: by 2002:a05:7010:8ca6:b0:448:d23e:8cca with SMTP id gn38csp502609mdb;
+        Fri, 6 Jun 2025 03:45:35 -0700 (PDT)
+X-Forwarded-Encrypted: i=4; AJvYcCX/DibKu3iFfEzenvptOqKpusP/NMaPkNjh1OQCgg8PBPr/cjUx5wf1sFi4OejsTtM1p1/IVVmBIfoCk7bhjQ==@vit.edu
+X-Received: by 2002:a05:6a21:e85:b0:217:feb5:62f5 with SMTP id adf61e73a8af0-21ee6899e6bmr4560709637.30.1749206735353;
+        Fri, 06 Jun 2025 03:45:35 -0700 (PDT)
+ARC-Seal: i=3; a=rsa-sha256; t=1749206735; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=iTqxgidw/9UOkT8GfB9vL8n6Lai7YgI6TUlMpToZ73p2CfhE5S94YCvYg7LCwkzmeQ
+         WYj7ElqUytS0XjCtC2K/rK8H0gIjV7fbnvFpaDPt8dwRUQw95JQhjoCNIitVsvDdheoR
+         PNu+r2f/+oxxxh//a02NV4f9MoPUioEkRufuHd0UB8nJdGZCm69CseXtVO8xmHGqTyJM
+         i16MzjjsQaUFPal4FdpGwWsJDws0oLKa1Nfau3dCOXCslnhS8d3y55nBxluIJMnAocpa
+         g4yU3Eo9qFLvckv9F2hlC1tXlqbhHFr/ayAShLBpV4CuvBDMXMqebIYB+nLzJK1x8IDn
+         IDZg==
+ARC-Message-Signature: i=3; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:cc:to:subject:message-id:date:from
+         :mime-version:dkim-signature;
+        bh=rrdeAp51Lc65IvmQfj3wRw74waTJ2Eqqt/JcmY37rQw=;
+        fh=gtq86yAXSXEGZP3NcoMXf+cM/hugwVzJGxc6qpXCoTk=;
+        b=MLN2RiWa99yyv216W03UlrYHnTFqjGneoebEY9sgWPjJc6EDzAmvVzPdY1AomoKidD
+         LjYKPXpwE83F07BlH+BRqRa10FFMMTiPrRAAErJcM6rha0K9EHan/1DM+93EpszBPcPw
+         04gKqEvjJbQIY94ozxL4Jbh9FJ1HEkYh3f4gmTnU6koTD10akkrgPkDhud5nBWHtYZuJ
+         poZ7RzpFxqx5MoPzfMHLkASKpl/NCNWnFY3b0QuKDVYiMVfCj9tfV2b/malYziavMCNU
+         /lDAHnRUIfJtUiaLuAQTQilZjlmwXg1yX3Jy0W51vJCa3aQHMdLI7f9QODqMzuEKONSP
+         DJCQ==;
+        dara=google.com
+ARC-Authentication-Results: i=3; mx.google.com;
+       dkim=pass header.i=@vit.edu header.s=google header.b=DSPD3Y18;
+       arc=pass (i=2 dkim=pass dkdomain=vit.edu dmarc=pass fromdomain=vit.edu);
+       spf=none (google.com: sycsd+bncbci37t4jxujrbtunrpbamgqesqudaza@vit.edu does not designate permitted sender hosts) smtp.mailfrom=sycsd+bncBCI37T4JXUJRBTUNRPBAMGQESQUDAZA@vit.edu;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=vit.edu;
+       dara=fail header.i=@vit.edu
+Return-Path: <sycsd+bncBCI37T4JXUJRBTUNRPBAMGQESQUDAZA@vit.edu>
+Received: from mail-sor-f69.google.com (mail-sor-f69.google.com. [209.85.220.69])
+        by mx.google.com with SMTPS id 41be03b00d2f7-b2f5f1f1718sor1377547a12.4.2025.06.06.03.45.35
+        for <sneha.katole23@vit.edu>
+        (Google Transport Security);
+        Fri, 06 Jun 2025 03:45:35 -0700 (PDT)
+Received-SPF: none (google.com: sycsd+bncbci37t4jxujrbtunrpbamgqesqudaza@vit.edu does not designate permitted sender hosts) client-ip=209.85.220.69;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@vit.edu header.s=google header.b=DSPD3Y18;
+       arc=pass (i=2 dkim=pass dkdomain=vit.edu dmarc=pass fromdomain=vit.edu);
+       spf=none (google.com: sycsd+bncbci37t4jxujrbtunrpbamgqesqudaza@vit.edu does not designate permitted sender hosts) smtp.mailfrom=sycsd+bncBCI37T4JXUJRBTUNRPBAMGQESQUDAZA@vit.edu;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=vit.edu;
+       dara=fail header.i=@vit.edu
+ARC-Seal: i=2; a=rsa-sha256; t=1749206734; cv=pass;
+        d=google.com; s=arc-20240605;
+        b=LIpQB2egfyul/vr2rpOLE0jP8v2FCg6nbYvwFkmysKEzlkK5jFwEkUjUkpI4F/mYBV
+         yWv9BiDSXL267tJSXeXxXJYLAjyAqZW7bVJ4SF9eOjpv3wgpbOCS/aXjozXnqfn15Wf8
+         wrwf0YlUHPqOPFCyTRXOF2+VBfoBS882UUe0yQhUvz1XQTDq+qUlYd/lI4XM0/7eVmKY
+         7UI+/7J4VZFADRh3ChmnbsJpXfKCsFZ/hwJ9tqGcpvGEBC9IMNng92LDb1FheBidES5e
+         bYEf6UGn8apX8vzqQgK+WtgZeFgf+6gJSByAQsp3D39U1Vu4XMML394DaTgEPWbdyVw+
+         VndQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:cc:to:subject:message-id:date:from
+         :mime-version:dkim-signature;
+        bh=rrdeAp51Lc65IvmQfj3wRw74waTJ2Eqqt/JcmY37rQw=;
+        fh=gtq86yAXSXEGZP3NcoMXf+cM/hugwVzJGxc6qpXCoTk=;
+        b=aVqcnfO4Fafy8AdpNKiFTDrY5H9GpOiZ0jdpp1y1Xzd3Q2aYqky/HdcRT/Zp8yF5MF
+         qFx2NJMIDwIHuKDQMzMcK54fVdfTXDDBLh2K/gT4M+ESsIo+tuAGF9PDuD5QqFgG/X2y
+         5aXXH6xLeiT6BZ6nKcg4dchVHfLvuniFuuX3avOde6/IWATWNK+QhoOIjBU5qzVeCl3V
+         2o0bQNtMR1fzC6dEFJi6po2O4QiK+AF0PuN1DDmWgeytySMTvbRafDGhrLOq7c1CDviz
+         9GXzTOQS9WeVNT5ht7MWcXOLNiMsETkuZFGTfLhVLIDoDM70jz8bKXGyIR2FJCCovWgl
+         GkuQ==;
+        darn=vit.edu
+ARC-Authentication-Results: i=2; mx.google.com;
+       dkim=pass header.i=@vit.edu header.s=google header.b=MsQ+LUnn;
+       spf=none (google.com: exam@vit.edu does not designate permitted sender hosts) smtp.mailfrom=exam@vit.edu;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=vit.edu;
+       dara=pass header.i=@vit.edu
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=vit.edu; s=google; t=1749206734; x=1749811534; darn=vit.edu;
+        h=list-unsubscribe:list-archive:list-help:list-post:list-id
+         :mailing-list:precedence:x-original-authentication-results
+         :x-original-sender:cc:to:subject:message-id:date:from:mime-version
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=rrdeAp51Lc65IvmQfj3wRw74waTJ2Eqqt/JcmY37rQw=;
+        b=DSPD3Y18OoBsmfzw7AO9lJ6HHyQZ4U8kVlDADqDYXqe6eTQ3aS9DPyXc4HT1cYnLN6
+         XxYX2pD3oRqTHVK62JXFxG+nLJLcMSHu3OfIe/yF/esjvzfbCkveJZHJH+WGP479Wiat
+         jciMAQ5Qh+OeO4LA4Lmnu4elBI8dDZEAPWM3Y=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1749206734; x=1749811534;
+        h=list-unsubscribe:list-archive:list-help:list-post
+         :x-spam-checked-in-group:list-id:mailing-list:precedence
+         :x-original-authentication-results:x-original-sender:cc:to:subject
+         :message-id:date:from:mime-version:x-beenthere:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=rrdeAp51Lc65IvmQfj3wRw74waTJ2Eqqt/JcmY37rQw=;
+        b=hllzYnI6jShV8UH4sXtXcMsxIq+VzZNuSqsUU1YNdCH1cmFoVrxWwz9YEARchMpVUn
+         jO5NtjDR4vbbsBov9QAImqkLndiyBxOHyG9FAJkcd3s0Ra+DrtD4vwDDKV5Ag7SnoXE3
+         8RGGrPpihi+llEISLy81dzXj8PxTNtX71NZZOqL/quyzkbp41rsLypgEsse2KkRA/dTq
+         Yi83CoZqJxAbFTi9p+wdGxUWgG2m07kQDLfSVHgdyXaCBbXxfT6fCvEPuv7wPiuQtaJj
+         IxL32N9SFmKBucTwqkjkh2vSNusJNkBY/mJr3Bm2es8dC2g0EFjWp/So/IgwGcgSe7sM
+         Tqhg==
+X-Forwarded-Encrypted: i=2; AJvYcCXdW1U4NzTibLxOtCXrr1nAUS2oTaYzdc4PPVfYeKQqqN7RDwJDxBwX1zz9qLPwC100eoetttRTYezD3dJGzQ==@vit.edu
+X-Gm-Message-State: AOJu0YywnlZnabZO6LVUq4zF5k+tYEAZLFmkUgDBesfFK6QfOHeE7EyV
+	xeG+VeUTsemCKfnyaFfKy5evbiZ1ZvOhT/yMN+yjClB9GYdjjmcKATNSc1FUnqDEPTV3Pw==
+X-Google-Smtp-Source: AGHT+IHItJftfLOZ8+y65PK8jhfTlSQzZhRGotfo+EHL12nb8gLXhlvTKzU2lti+iJXhVs2aVItpMg==
+X-Received: by 2002:a05:6a20:3d87:b0:217:ff4b:cc57 with SMTP id adf61e73a8af0-21ee68c66a6mr3439331637.39.1749206734454;
+        Fri, 06 Jun 2025 03:45:34 -0700 (PDT)
+X-BeenThere: sycsd@vit.edu; h=AZMbMZcOpgZCr2KeeZfiwKa9pnMlv23Stal1e5ZUUCrRZX93zQ==
+Received: by 2002:a05:6a00:22c9:b0:742:8b2f:6e98 with SMTP id
+ d2e1a72fcca58-74817c66835ls2352817b3a.0.-pod-prod-08-us; Fri, 06 Jun 2025
+ 03:45:33 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCXlLMvFyf4cDfEifikTaC5XdhZtDVmVzkdRCBcHsLjpXBnr6NQXA4MQiLp/zPGe8iFBaEKkSg==@vit.edu
+X-Received: by 2002:a05:6a00:b85:b0:742:da7c:3f30 with SMTP id d2e1a72fcca58-74827f10920mr4665405b3a.19.1749206733143;
+        Fri, 06 Jun 2025 03:45:33 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1749206733; cv=none;
+        d=google.com; s=arc-20240605;
+        b=hk2svpVXlkorrftiabFwzay/QbdMOp/mFjwGmpdT9KWwdEIeKy6aI218rV0Y8VFYes
+         vk7KzaW5PGOIUjWuNvBX6n67w3Q2WsLjRojoPbpG8XiQnvBHDnOyr1KHril1k+Zqq/Bh
+         dEaasowewLIcjVHYprcTx2dQ/OGQ4RmlRdE2BkG+QkO1J7JtZTmOzyk4y74rguyKJRwu
+         4zFREchzrDUtY9WZbg+Jxjo9nT/gLNpCHySuZsA8yWfUvKvqUTSwwyYXjNMGzdM3Hd8z
+         RFjfG8i+tZsyl9e7RQwC53fMEJpEK50H/GLssbG7GVEhM/I9rUJGyL1HPXVz1coIz4pX
+         sSSA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=rrdeAp51Lc65IvmQfj3wRw74waTJ2Eqqt/JcmY37rQw=;
+        fh=LaRIR/D1kafy5HIItLdXW2asn9Xi9OHMsZtLzHmtHCA=;
+        b=V5fxZdgAR17DjYV1hIT7jFGbi+W2/QvRwh79noSHYdG0Y3KvDCI9QxfAHFrCniWSBY
+         0LNX9sn64j22WPJuX/nzcuTR0giouVUrR3rs3uZCY6/M6a/zJ9e7j/jtRwXYDwU6T6QX
+         +SeNyRY0xifvyt8dfBfw6j22E1dRnPzvgnI+aEDeBoyrPe+2qGyPO4m98xUPcX9UA0BC
+         lhPR6Z9tX91nB9E2JSoz82XFAECRYfDnSMIGF9uwfSv7MndYuWrhpmlzPJ1D896HdKHE
+         ZB02LWktAEqh+VLrlIO6URVfX++UQValHRW9VZ6AU+yDyNJPur3Tpokb6Bq0IeRQWDAM
+         geVg==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@vit.edu header.s=google header.b=MsQ+LUnn;
+       spf=none (google.com: exam@vit.edu does not designate permitted sender hosts) smtp.mailfrom=exam@vit.edu;
+       dmarc=pass (p=QUARANTINE sp=QUARANTINE dis=NONE) header.from=vit.edu;
+       dara=pass header.i=@vit.edu
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id d2e1a72fcca58-7482b0cadbfsor1275390b3a.6.2025.06.06.03.45.33
+        for <sycsd@vit.edu>
+        (Google Transport Security);
+        Fri, 06 Jun 2025 03:45:33 -0700 (PDT)
+Received-SPF: none (google.com: exam@vit.edu does not designate permitted sender hosts) client-ip=209.85.220.41;
+X-Forwarded-Encrypted: i=1; AJvYcCW14zn0jWTpP4wpgNwlSH8fXLr42AZh84kE07hOKkxPG5OFts/atJhTVAHGGs8sKq+ZWteShw==@vit.edu
+X-Gm-Gg: ASbGncvNM9OSb89bX/lR+yD2XrTBZ1O917xre1DRrBq0vEGvKiWJ+GpEtmLqanZIGZh
+	QiOsXBP2tELQQCGA+aQEp4NYP5eRJYDVPISuB8dRsR+1DlInVbfF9O13z7qFTQ0lNDXgI6150E0
+	Vd6laVi4YH1jZ4cER66+qzd3VdMmlGAbisqDL39fMThsrCktuhVE1+Xw==
+X-Received: by 2002:a05:6a00:4f82:b0:740:6fa3:e429 with SMTP id
+ d2e1a72fcca58-74827e9cbc2mr3877565b3a.11.1749206732586; Fri, 06 Jun 2025
+ 03:45:32 -0700 (PDT)
+MIME-Version: 1.0
+From: exam vit <exam@vit.edu>
+Date: Fri, 6 Jun 2025 16:15:21 +0530
+X-Gm-Features: AX0GCFulvu9tRAfJBtFzmMsFdRn0P9rYzJm17GYFgInLmRfZAS6A6VWCxEptAUY
+Message-ID: <CANOGJbiQ2D+gx_PuJwnSYRt3=opsvFFuwoehR9KwmogaLVRXtw@mail.gmail.com>
+Subject: A.Y. 2024-25 Sem-II SY,TY result visible in vierp
+To: syaidsa@vit.edu, syaidsb@vit.edu, syaidsc@vit.edu, sycha@vit.edu, 
+	sycsa@vit.edu, sycsb@vit.edu, sycsc@vit.edu, sycsd@vit.edu, sycse@vit.edu, 
+	sycsaia@vit.edu, sycsaib@vit.edu, syaimla@vit.edu, syaimlb@vit.edu, 
+	syeta@vit.edu, syetb@vit.edu, syetc@vit.edu, syetd@vit.edu, syica@vit.edu, 
+	syita@vit.edu, syitb@vit.edu, syitc@vit.edu, symea@vit.edu, symeb@vit.edu, 
+	symec@vit.edu, symed@vit.edu, aisedaa@vit.edu, chsedaa@vit.edu, 
+	csaimlsedaa@vit.edu, csaisedaa@vit.edu, cssedaa@vit.edu, etsedaa@vit.edu, 
+	icsedaa@vit.edu, itsedaa@vit.edu, mesedaa@vit.edu, tyaidsa@vit.edu, 
+	tyaidsb@vit.edu, tyaidsc@vit.edu, tycsa@vit.edu, tycsb@vit.edu, tycsc@vit.edu, 
+	tycsd@vit.edu, tycsaia@vit.edu, tyaimla@vit.edu, tyeta@vit.edu, tyetb@vit.edu, 
+	tyetc@vit.edu, tyica@vit.edu, tyita@vit.edu, tyitb@vit.edu, tyitc@vit.edu, 
+	tymea@vit.edu, tymeb@vit.edu, tymec@vit.edu
+Cc: hod@vit.edu
+Content-Type: multipart/alternative; boundary="000000000000ef58b00636e4edb7"
+X-Original-Sender: exam@vit.edu
+X-Original-Authentication-Results: mx.google.com;       dkim=pass
+ header.i=@vit.edu header.s=google header.b=MsQ+LUnn;       spf=none
+ (google.com: exam@vit.edu does not designate permitted sender hosts)
+ smtp.mailfrom=exam@vit.edu;       dmarc=pass (p=QUARANTINE sp=QUARANTINE
+ dis=NONE) header.from=vit.edu;       dara=pass header.i=@vit.edu
+Precedence: list
+Mailing-list: list sycsd@vit.edu; contact sycsd+owners@vit.edu
+List-ID: <sycsd.vit.edu>
+X-Spam-Checked-In-Group: sycsd@vit.edu
+X-Google-Group-Id: 801334481764
+List-Post: <https://groups.google.com/a/vit.edu/group/sycsd/post>, <mailto:sycsd@vit.edu>
+List-Help: <https://support.google.com/a/vit.edu/bin/topic.py?topic=25838>, <mailto:sycsd+help@vit.edu>
+List-Archive: <https://groups.google.com/a/vit.edu/group/sycsd/>
+List-Unsubscribe: <mailto:googlegroups-manage+801334481764+unsubscribe@googlegroups.com>,
+ <https://groups.google.com/a/vit.edu/group/sycsd/subscribe>
+
+--000000000000ef58b00636e4edb7
+Content-Type: text/plain; charset="UTF-8"
+
+Dear Student,
+
+
+
+Results of Second  year and Third year  BTech of Current semester (AY
+2024-25 Sem-II) is  visible in your vierp login.
+
+
+
+*Result is visible in student's login using following steps -*
+
+1. Login to learner.vierp.in
+
+2. Click on 'Examinations-> Grade card/Marksheet'
+
+3. Select year and semester
+
+
+
+ If *FNP* status is visible on the marksheet then contact the accounts
+section on accounts@vit.edu.
+
+If RR Status is visible on the marksheet then contact the exam section by
+writing mail to exam@vit.edu, otherwise  contact the exam section window,
+(Building number 1, ground floor near lift) only between Monday to Friday -11
+am to 1 pm or 3 pm to 5 pm.
+
+
+If your result is not visible due to ABC ID then immediately save your ABC
+ID In VIERP. once you save ABC ID in VIERP then logout and login again to
+see your result.
+
+
+For any other  query related to the result  students can contact the exam
+section through writing mail to exam@vit.edu *.*  Any query sent to
+exam@vit.edu will be* r*eplied between Monday to Friday
+
+
+
+
+*DO NOT REPLY TO THIS MAIL.*
+
+
+
+*Examination Section,*
+
+*Vishwakarma Institute of Technology,*
+
+*Pune.*
+
+--000000000000ef58b00636e4edb7
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><p class=3D"MsoNormal" style=3D"margin:0cm;line-height:nor=
+mal;font-size:12pt;font-family:Aptos,sans-serif"><span style=3D"font-family=
+:&quot;Times New Roman&quot;,serif">Dear Student,</span><span style=3D"font=
+-size:11pt;font-family:Calibri,sans-serif"></span></p><p class=3D"MsoNormal=
+" style=3D"margin:0cm;line-height:normal;font-size:12pt;font-family:Aptos,s=
+ans-serif"><span style=3D"font-family:&quot;Times New Roman&quot;,serif">=
+=C2=A0</span><span style=3D"font-size:11pt;font-family:Calibri,sans-serif">=
+</span></p><p class=3D"MsoNormal" style=3D"margin:0cm;line-height:normal;fo=
+nt-size:12pt;font-family:Aptos,sans-serif"><span style=3D"font-family:&quot=
+;Times New Roman&quot;,serif"><span class=3D"gmail-il">Results</span>=C2=A0=
+of Second=C2=A0 year and Third year=C2=A0 BTech of Current semester (AY 202=
+4-25 Sem-II) is=C2=A0 visible=C2=A0in your vierp login.</span><span style=
+=3D"font-size:11pt;font-family:Calibri,sans-serif"></span></p><p class=3D"M=
+soNormal" style=3D"margin:0cm;line-height:normal;font-size:12pt;font-family=
+:Aptos,sans-serif"><span style=3D"font-family:&quot;Times New Roman&quot;,s=
+erif">=C2=A0</span><span style=3D"font-size:11pt;font-family:Calibri,sans-s=
+erif"></span></p><p class=3D"MsoNormal" style=3D"margin:0cm;line-height:nor=
+mal;font-size:12pt;font-family:Aptos,sans-serif"><b><span style=3D"font-fam=
+ily:&quot;Times New Roman&quot;,serif"><span class=3D"gmail-il">Result</spa=
+n>=C2=A0is visible in student&#39;s login using following steps -</span></b=
+><span style=3D"font-size:11pt;font-family:Calibri,sans-serif"></span></p><=
+p class=3D"MsoNormal" style=3D"margin:0cm;line-height:normal;font-size:12pt=
+;font-family:Aptos,sans-serif"><span style=3D"font-family:&quot;Times New R=
+oman&quot;,serif">1. Login to=C2=A0<span style=3D"color:black"><a href=3D"h=
+ttp://learner.vierp.in/" target=3D"_blank"><span style=3D"color:blue">learn=
+er.vierp.in</span></a></span></span><span style=3D"font-size:11pt;font-fami=
+ly:Calibri,sans-serif"></span></p><p class=3D"MsoNormal" style=3D"margin:0c=
+m;line-height:normal;font-size:12pt;font-family:Aptos,sans-serif"><span sty=
+le=3D"font-family:&quot;Times New Roman&quot;,serif">2. Click on &#39;Exami=
+nations-&gt; Grade card/Marksheet&#39;</span><span style=3D"font-size:11pt;=
+font-family:Calibri,sans-serif"></span></p><p class=3D"MsoNormal" style=3D"=
+margin:0cm;line-height:normal;font-size:12pt;font-family:Aptos,sans-serif">=
+<span style=3D"font-family:&quot;Times New Roman&quot;,serif">3. Select yea=
+r and semester</span><span style=3D"font-size:11pt;font-family:Calibri,sans=
+-serif"></span></p><p class=3D"MsoNormal" style=3D"margin:0cm;line-height:n=
+ormal;font-size:12pt;font-family:Aptos,sans-serif"><span style=3D"font-fami=
+ly:&quot;Times New Roman&quot;,serif">=C2=A0</span><span style=3D"font-size=
+:11pt;font-family:Calibri,sans-serif"></span></p><p class=3D"MsoNormal" sty=
+le=3D"margin:0cm;line-height:normal;font-size:12pt;font-family:Aptos,sans-s=
+erif"><span style=3D"font-family:&quot;Times New Roman&quot;,serif">=C2=A0I=
+f=C2=A0<u>FNP</u>=C2=A0status is visible on the marksheet then contact the =
+accounts section on=C2=A0<span style=3D"color:black"><a href=3D"mailto:acco=
+unts@vit.edu" target=3D"_blank"><span style=3D"color:blue">accounts@vit.edu=
+</span></a></span>.=C2=A0</span></p><p class=3D"MsoNormal" style=3D"margin:=
+0cm;line-height:normal;font-size:12pt;font-family:Aptos,sans-serif"><span s=
+tyle=3D"font-family:&quot;Times New Roman&quot;,serif">If RR Status is visi=
+ble on the marksheet then contact the exam section by writing mail to=C2=A0=
+<a href=3D"mailto:exam@vit.edu" target=3D"_blank">exam@vit.edu</a>, otherwi=
+se=C2=A0</span><span style=3D"font-family:&quot;Times New Roman&quot;,serif=
+;font-size:12pt">=C2=A0contact the=C2=A0</span><span style=3D"font-family:&=
+quot;Times New Roman&quot;,serif;font-size:12pt">exam section window, (Buil=
+ding number 1, ground floor near lift) only between Monday to Friday -1</sp=
+an><span style=3D"font-family:&quot;Times New Roman&quot;,serif;font-size:1=
+2pt">1 am to 1 pm or 3 pm to 5 pm.</span></p><p class=3D"MsoNormal" style=
+=3D"margin:0cm;line-height:normal;font-size:12pt;font-family:Aptos,sans-ser=
+if"><span style=3D"font-family:&quot;Times New Roman&quot;,serif"><u><br></=
+u></span></p><p class=3D"MsoNormal" style=3D"margin:0cm;line-height:normal;=
+font-size:12pt;font-family:Aptos,sans-serif"><span style=3D"font-family:&qu=
+ot;Times New Roman&quot;,serif">If your=C2=A0<span class=3D"gmail-il">resul=
+t</span>=C2=A0is not visible due to ABC ID then immediately save your ABC I=
+D In VIERP. once you save ABC ID in VIERP then logout and login again to se=
+e your=C2=A0<span class=3D"gmail-il">result</span>.</span></p><p class=3D"M=
+soNormal" style=3D"margin:0cm;line-height:normal;font-size:12pt;font-family=
+:Aptos,sans-serif"><span style=3D"font-family:&quot;Times New Roman&quot;,s=
+erif"><u><br></u></span></p><p class=3D"MsoNormal" style=3D"margin:0cm;line=
+-height:normal;font-size:12pt;font-family:Aptos,sans-serif"><span style=3D"=
+font-family:&quot;Times New Roman&quot;,serif">For any other=C2=A0 query re=
+lated to the=C2=A0<span class=3D"gmail-il">result</span>=C2=A0 students can=
+ contact the exam section through writing=C2=A0mail to=C2=A0<span style=3D"=
+color:blue">exam@</span><span style=3D"color:black"><a href=3D"http://vit.e=
+du/" target=3D"_blank"><span style=3D"color:blue">vit.edu</span></a></span>=
+=C2=A0<b>.</b>=C2=A0=C2=A0</span><span style=3D"font-size:12pt"><span style=
+=3D"font-family:&quot;Times New Roman&quot;,serif">Any query sent to=C2=A0<=
+a href=3D"mailto:exam@vit.edu" target=3D"_blank"><span style=3D"color:blue"=
+>exam@vit.edu</span></a>=C2=A0will be<u>=C2=A0r</u>eplied between=C2=A0</sp=
+an></span><span style=3D"font-size:12pt;font-family:&quot;Times New Roman&q=
+uot;,serif">Monday to Friday</span></p><p class=3D"MsoNormal" style=3D"marg=
+in:0cm;line-height:normal;font-size:12pt;font-family:Aptos,sans-serif"><br>=
+</p><p class=3D"MsoNormal" style=3D"margin:0cm;line-height:normal;font-size=
+:12pt;font-family:Aptos,sans-serif"><b><span style=3D"font-family:&quot;Tim=
+es New Roman&quot;,serif">=C2=A0</span></b><span style=3D"font-size:11pt;fo=
+nt-family:Calibri,sans-serif"></span></p><p class=3D"MsoNormal" style=3D"ma=
+rgin:0cm;line-height:normal;font-size:12pt;font-family:Aptos,sans-serif"><b=
+><span style=3D"font-family:&quot;Times New Roman&quot;,serif">DO NOT REPLY=
+ TO THIS MAIL.</span></b><span style=3D"font-size:11pt;font-family:Calibri,=
+sans-serif"></span></p><p class=3D"MsoNormal" style=3D"margin:0cm;line-heig=
+ht:normal;font-size:12pt;font-family:Aptos,sans-serif"><span style=3D"font-=
+size:11pt;font-family:Calibri,sans-serif">=C2=A0</span></p><p class=3D"MsoN=
+ormal" style=3D"margin:0cm;line-height:normal;font-size:12pt;font-family:Ap=
+tos,sans-serif"><b><span style=3D"font-family:&quot;Times New Roman&quot;,s=
+erif">Examination Section,</span></b><span style=3D"font-size:11pt;font-fam=
+ily:Calibri,sans-serif"></span></p><p class=3D"MsoNormal" style=3D"margin:0=
+cm;line-height:normal;font-size:12pt;font-family:Aptos,sans-serif"><b><span=
+ style=3D"font-family:&quot;Times New Roman&quot;,serif">Vishwakarma Instit=
+ute of Technology,</span></b><span style=3D"font-size:11pt;font-family:Cali=
+bri,sans-serif"></span></p><p class=3D"MsoNormal" style=3D"margin:0cm;line-=
+height:normal;font-size:12pt;font-family:Aptos,sans-serif"><b><span style=
+=3D"font-family:&quot;Times New Roman&quot;,serif">Pune.</span></b></p></di=
+v>
+
+--000000000000ef58b00636e4edb7--
