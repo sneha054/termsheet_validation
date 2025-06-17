@@ -1,0 +1,70 @@
+import re
+from docx import Document
+
+# Extract and clean text
+def extract_text_from_worddocx(docx_path):
+    doc = Document(docx_path)
+    full_text = [p.text.strip() for p in doc.paragraphs if p.text.strip()]
+    return full_text
+
+def extract_tables_from_worddocx(docx_path):
+    doc = Document(docx_path)
+    tables = []
+    for table in doc.tables:
+        for row in table.rows:
+            row_data = [cell.text.strip() for cell in row.cells]
+            if any(row_data):
+                tables.append(row_data)
+    return tables
+
+def clean_text_lines(lines):
+    cleaned = []
+    for line in lines:
+        line = re.sub(r'\s+', ' ', line)
+        line = re.sub(r'[^\x00-\x7F]+', '', line)
+        line = re.sub(r'[•·]', '-', line)
+        line = line.strip(" -:\n")
+        if line:
+            cleaned.append(line)
+    return cleaned
+
+def clean_table_rows(tables):
+    cleaned = []
+    for row in tables:
+        row_clean = [re.sub(r'\s+', ' ', cell).strip() for cell in row if cell.strip()]
+        if row_clean:
+            cleaned.append(row_clean)
+    return cleaned
+
+# Write cleaned data into a new .docx
+def write_cleaned_to_docx(paragraphs, tables, output_path):
+    new_doc = Document()
+
+    new_doc.add_heading("Cleaned Termsheet Document", level=1)
+
+    new_doc.add_heading("Text Content", level=2)
+    for para in paragraphs:
+        new_doc.add_paragraph(para)
+
+    new_doc.add_page_break()
+
+    new_doc.add_heading("Tables", level=2)
+    for row in tables:
+        table = new_doc.add_table(rows=1, cols=len(row))
+        hdr_cells = table.rows[0].cells
+        for i, cell in enumerate(row):
+            hdr_cells[i].text = cell
+
+    new_doc.save(output_path)
+    print(f"✅ Cleaned document saved as: {output_path}")
+
+# Execute
+docx_path = 'CFI-Term-Sheet-Template.docx'
+paragraphs_raw = extract_text_from_worddocx(docx_path)
+tables_raw = extract_tables_from_worddocx(docx_path)
+
+paragraphs_cleaned = clean_text_lines(paragraphs_raw)
+tables_cleaned = clean_table_rows(tables_raw)
+
+write_cleaned_to_docx(paragraphs_cleaned, tables_cleaned, 'Cleaned_Termsheet.docx')
+
