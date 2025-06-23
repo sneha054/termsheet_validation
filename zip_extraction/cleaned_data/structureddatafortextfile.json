@@ -1,0 +1,87 @@
+{
+  "sections": {
+    "date": "This Term Sheet summarizes the principal terms of the offering by COMPANY,LLC, a Delaware limited liability company, (the \u201cCompany\u201d) of up to 250Units of its Common Units (as defined in the Limited Liability CompanyAgreement dated _________, 2013 [the \u201cOperating Agreement\u201d]).Concurrent with or prior to the issuance of any Common Units pursuant tothis offering, the Company shall acquire all of the issued and outstandingmembership interest in Company, LLC, a New York limited liability company,(d/b/a Company) (the \u201cNY LLC\u201d). The NY LLC is expected to be the operatingcompany whereas the Company shall be a holding company operating the\u201cCOMPANY\u201d business through the NY LLC.",
+    "amount_to_be_raised": "Up to $500,000 (the \u201cTotal Offering Amount\u201d).",
+    "type_of_security": "Common Units as described in greater detail in the Operating Agreement ofthe Company, a copy of which has been provided to each subscriber.",
+    "price_and_minimum_subscription": "$2,000 per Common Unit, with a minimum subscription of 12.5 Units ($25,000minimum subscription).",
+    "capitalization": "The Company\u2019s capital structure before this offering, and the capitalstructure assuming the Total Offering Amount is issued, is set forth onExhibit A.",
+    "use_of_proceeds": "The proceeds from the offering will be used for (i) inventory, (ii) generalworking capital purposes, (iii) sales, general and administrative expenses,and (iv) achieving its sales goals",
+    "voting_rights": "The holders Common Units will be entitled to that number of votes equal tothe number of Common Units held and voting together with all other CommonUnits of the company. The Company\u2019s Operating Agreement will provide thatthe number of authorized Common Units may be increased or decreased withthe approval of the holders of two-thirds of the Common Units.",
+    "anti-dilution_provisions": "See Section 3.10 of the Operating Agreement.",
+    "liquidation_preferences": "See Section 10.3 of the Operating Agreement.",
+    "subscription_agreement": "The sale of Common Units as described above will be made pursuant to asubscription agreement mutually acceptable to the Company and eachInvestor, which agreement will contain, among other things, appropriaterepresentations and warranties of the Company and each Investor andappropriate conditions to closing which will include, among other things,qualification of the securities to be sold under applicable Blue Sky laws.",
+    "acceptance_of_operating_agreement": "*Concurrent with the issuance of the Common Units each Investor shall agreeto be bound by the terms of the Operating Agreement.",
+    "drag-along_right": "See Section 7.2 of the Operating Agreement.",
+    "transfer_restrictions": "See Article 7 of the Operating Agreement",
+    "counsel_and_expenses": "Company counsel to draft closing documents. Each party to be responsiblefor their own expenses."
+  },
+  "exhibit_a": {
+    "pre_financing": [
+      {
+        "member": "Member 1",
+        "number_of_units": 373.1,
+        "type_of_units": "Common Units",
+        "%_of_total": 37.31,
+        "%_of_class": 38.46
+      },
+      {
+        "member": "Member 2",
+        "number_of_units": 373.1,
+        "type_of_units": "Common Units",
+        "%_of_total": 37.31,
+        "%_of_class": 38.46
+      },
+      {
+        "member": "Member 3",
+        "number_of_units": 223.8,
+        "type_of_units": "Common Units",
+        "%_of_total": 22.38,
+        "%_of_class": 23.07
+      },
+      {
+        "member": "Member 4",
+        "number_of_units": 30.0,
+        "type_of_units": "Common Non-Voting Units",
+        "%_of_total": 3.0,
+        "%_of_class": 100.0
+      }
+    ],
+    "post_financing": [
+      {
+        "member": "Member 1",
+        "number_of_units": 373.1,
+        "type_of_units": "Common Units",
+        "%_of_total": 29.85,
+        "%_of_class": 30.58
+      },
+      {
+        "member": "Member 2",
+        "number_of_units": 373.1,
+        "type_of_units": "Common Units",
+        "%_of_total": 29.85,
+        "%_of_class": 30.58
+      },
+      {
+        "member": "Member 3",
+        "number_of_units": 223.8,
+        "type_of_units": "Common Units",
+        "%_of_total": 17.9,
+        "%_of_class": 18.34
+      },
+      {
+        "member": "Member 4",
+        "number_of_units": 30.0,
+        "type_of_units": "Common Non-Voting Units",
+        "%_of_total": 2.4,
+        "%_of_class": 100.0
+      },
+      {
+        "member": "Additional Investors (In Total)",
+        "number_of_units": 250.0,
+        "type_of_units": "Common Units",
+        "%_of_total": 20.0,
+        "%_of_class": 20.49
+      }
+    ]
+  }
+}
