@@ -1,0 +1,110 @@
+{
+  "Sheet1": [
+    {
+      "Field": "Deal ID",
+      "Value": "TS123456"
+    },
+    {
+      "Field": "Counterparty Name",
+      "Value": "ABC Capital Ltd."
+    },
+    {
+      "Field": "Currency",
+      "Value": "USD"
+    },
+    {
+      "Field": "Principal Amount",
+      "Value": "5000000"
+    },
+    {
+      "Field": "Interest Rate (%)",
+      "Value": "4.25"
+    },
+    {
+      "Field": "Interest Type",
+      "Value": "Fixed"
+    },
+    {
+      "Field": "Start Date",
+      "Value": "2025-06-01 00:00:00"
+    },
+    {
+      "Field": "Maturity Date",
+      "Value": "2026-06-01 00:00:00"
+    },
+    {
+      "Field": "Payment Frequency",
+      "Value": "Quarterly"
+    },
+    {
+      "Field": "Penalty Clause",
+      "Value": "2% penalty for late pay"
+    },
+    {
+      "Field": "Governing Law",
+      "Value": "New York"
+    },
+    {
+      "Field": "Early Termination",
+      "Value": "Allowed with 30-day notice"
+    },
+    {
+      "Field": "Comments",
+      "Value": "Client prefers fixed rate"
+    }
+  ],
+  "Sheet2": [
+    {
+      "Field": "Deal ID",
+      "Value": "TS123456"
+    },
+    {
+      "Field": "Counterparty Name",
+      "Value": "ABC Capital Ltd."
+    },
+    {
+      "Field": "Currency",
+      "Value": "USD"
+    },
+    {
+      "Field": "Principal Amount",
+      "Value": "5000000"
+    },
+    {
+      "Field": "Interest Rate (%)",
+      "Value": "4.25"
+    },
+    {
+      "Field": "Interest Type",
+      "Value": "Fixed"
+    },
+    {
+      "Field": "Start Date",
+      "Value": "2025-06-01 00:00:00"
+    },
+    {
+      "Field": "Maturity Date",
+      "Value": "2026-06-01 00:00:00"
+    },
+    {
+      "Field": "Payment Frequency",
+      "Value": "Quarterly"
+    },
+    {
+      "Field": "Penalty Clause",
+      "Value": "2% penalty for late pay"
+    },
+    {
+      "Field": "Governing Law",
+      "Value": "New York"
+    },
+    {
+      "Field": "Early Termination",
+      "Value": "Allowed with 30-day notice"
+    },
+    {
+      "Field": "Comments",
+      "Value": "Client prefers fixed rate"
+    }
+  ]
+}
