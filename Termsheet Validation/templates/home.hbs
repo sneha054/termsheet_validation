@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,24 +9,35 @@
 
 </head>
 <body>
+    <nav class="navbar">
+        <div class="left">
+            <h2>Termsheet Validator</h2>
+        </div>
+        <div class="right">
+            <a href="/signup" class="Fst">SignUp</a>
+            <a href="/login" class="Snd">LogIn</a>
+        </div>
+    </nav>
     <div class="container">
         <div class="row">
-            <div class="col-6">
                 <h1>File Upload</h1>
-            </div>
+        </div>
+        <div>
+            <p>You can upload pdf, xls, doc or zip file</p>
         </div>
         <form action="/submitform" method="POST" enctype="multipart/form-data">
-            <div class="row">
+        <input type="hidden" name="email" value="{{Email}}">
+        
                 <div class="col-6">
                     <div class="mb-3">
                         <label for="file_input" class="formlabel" >Select File</label>
-                        <input type="file" name="userfile" id="file_input" class="form-control">
+                        <input type="file" name="userfile" id="file_input" class="form-control" hidden>
                     </div>
                     <div>
                         <input type="submit" class="btn">
                     </div>
                 </div>
-            </div>
+            
         </form>
     </div>
 
