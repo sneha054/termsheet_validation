@@ -1,68 +1,122 @@
-const form = document.getElementById('form')
-const firstname_input = document.getElementById('Firstname-input')
-const email_input = document.getElementById('Email-input')
-const password_input = document.getElementById('password-input')
-const repeat_password_input = document.getElementById('RepeatPassword-input')
-const error_message = document.getElementById('error-message')
+const express=require("express") 
+const app=express() //used to define routes, responses etc.
+const path=require("path") // manages file and folder paths
+const hbs=require("hbs") // handle html files dynamically
+const collection=require("./mongodb") //schema built for singup page
+const multer=require("multer") //to handle file uploads
+let firstname = ''; // to store info from signup form
+let email = '';
+let Password = '';
 
-form.addEventListener('submit', (e)=>{
-    let errors=[]
-    if(firstname_input){
-        errors = getErrorFromSignup(firstname_input.value,email_input.value,password_input.value,repeat_password_input.value)
+const templatePath = path.join(__dirname,'../templates')
+
+app.use(express.json()) //lets app understand JSON formatted data
+app.use(express.static(path.join(__dirname, '../public'))) //serves static files like css and images from public folder
+app.set("view engine","hbs") // tells express to use hbs and template engine
+app.set("views",templatePath) //tells express to find .hbs files from tempaltePath
+app.use(express.urlencoded({extended:false})) // allows form data to be read
+
+const storage = multer.diskStorage({
+    destination:(req,file,cb)=>{
+        cb(null,'./uploads')
+    }, //files are saved in uploads folder
+    filename:(req,file,cb)=>{
+        const newFileName=Date.now()+path.extname(file.originalname)
+        cb(null,newFileName)
+    } //set filename to current date
+})
+const allowedTypes=[
+    'application/pdf',
+    'application/msword',
+    'application/vnd.ms-excel'
+] //allowed file types stored as MIME(Multipurpose Intrnedt Mail Exptensions)
+
+const fileFilter=(req,file,cb)=>{
+    if(allowedTypes.includes(file.mimetype)){
+        cb(null,true)
     }
     else{
-        errors = getErrorFromLogin(email_input.value,password_input.value)
+        cb(new Error('Only .pdf, .doc, .xls files are allowed!'),false)
     }
-    if(errors.length>0){
-        e.preventDefault()
-        error_message.innerText = errors.join(". ")
-    }
+} //filters allowed types
+
+const upload=multer({
+    storage:storage,
+    limits:{
+        fileSize:1024*1024*3, //3MB
+    },
+    fileFilter:fileFilter
+}) //acts as middleware to handle file uploads securely
+
+app.get("/",(req,res)=>{
+    res.render("login")
+})
+app.get("/login",(req,res)=>{
+    res.render("login")
+})
+app.get("/signup",(req,res)=>{
+    res.render("signup")
 })
 
-function getErrorFromSignup(firstName, email, password, repeatPassword){
-    let errors = []
-    if(firstName === '' || firstName==null){
-        errors.push('Firstname is required')
-        firstname_input.parentElement.classList.add('incorrect')
-    }
-    if(email === '' || email==null){
-        errors.push('Email is required')
-        email_input.parentElement.classList.add('incorrect')
-    }
-    if(password === '' || password==null){
-        errors.push('Password is required')
-        password_input.parentElement.classList.add('incorrect')
-    }
-    if(password.length<6){
-        errors.push('Password must be at least 6 characters')
-        password_input.parentElement.classList.add('incorrect')
-    }
-    if(password!==repeatPassword){
-        errors.push('Password does not match repeated password')
-        password_input.parentElement.classList.add('incorrect')
-        repeat_password_input.parentElement.classList.add('incorrect')
-    }
-    return errors
+app.post('/submitform', upload.single('userfile'), async (req, res) => {
+  if (!req.file || req.file.length ===0 ) {
+    return res.status(400).send('No file uploaded or invalid file type.')
+  }
+  const email  = req.body.email;
+  if(!email){
+    return req.status(400).send('Email is required to upload a file.');
+  }
 
-}function getErrorFromLogin(email, password){
-    let errors = []
-    if(email === '' || email==null){
-        errors.push('Email is required')
-        email_input.parentElement.classList.add('incorrect')
-    }
-    if(password === '' || password==null){
-        errors.push('Password is required')
-        password_input.parentElement.classList.add('incorrect')
-    }
-    return errors
-}
+  const user = await collection.findOne({Email:email});
+  if(!user){
+    return res.status(404).send('User not found.');
+  }
+  user.fileArray = [{
+    originalname: req.file.originalname,
+    path: req.file.path,
+    mimetype: req.file.mimetype,
+    size: req.file.size
+  }];
+  await user.save();
 
-const allInputs = [firstname_input, email_input, password_input, repeat_password_input].filter(input=>input!=null)
-allInputs.forEach(input =>{
-    input.addEventListener('input',()=>{
-        if(input.parentElement.classList.contains('incorrect')){
-            input.parentElement.classList.remove('incorrect')
-            error_message.innerText = ' '
-        }
-    })
+  res.send(File uploaded successfully: ${req.file.filename})
+});
+
+app.use((error,req,res,next)=>{
+    if(error instanceof multer.MulterError){
+        return res.status(400).send(Multer error: ${error.message})
+    }
+    else if(error){
+        return res.status(500).send(Something went wrong: ${error.message})
+    }
+    next()
 })
+
+
+app.post("/signup", async (req, res) => {
+    const { Firstname, Email, password } = req.body;
+
+    // Check if email already exists
+    const existingUser = await collection.findOne({ Email });
+    if (existingUser) {
+        return res.render("signup", { error: "Email already exists" });
+    }
+
+    // If not, save new user
+    await collection.insertMany([{ Firstname, Email, password }]);
+    res.render("home",{Email});
+});
+
+
+app.listen(3000,()=>{
+    console.log('Port Connected!')
+})
+
+app.post("/login", async (req, res) => {
+  const { Email, password } = req.body;
+  const user = await collection.findOne({ Email });
+  if (!user || user.password !== password) {
+    return res.render("login", { error: "Invalid credentials" });
+  }
+  res.render("home",{ Email });
+});
