@@ -3,6 +3,7 @@ import pdfplumber #extracting tables
 import fitz #for pymupdf
 import pytesseract as pt
 from pdf2image import convert_from_path
+import sys
 
 def extract_text_from_pdf(pdf_file:str)  -> str:
     pdf_text=""
@@ -52,16 +53,21 @@ def save_text_to_file(text:str,filename,mode):
         f.write(text)
 
 if __name__ == '__main__':
-    pdf_path='TERM_SHEET_EQUITY.pdf'
-    scanned_pdf_path='scansmpl.pdf'
+    
+    if len(sys.argv) < 2:
+        print("Running pdf_extractor.py")
+        sys.exit(1)
+    
+    pdf_path=sys.argv[1]
+    #scanned_pdf_path='scansmpl.pdf'
     extracted_text=extract_text_from_pdf(pdf_path)
-    extracted_text_from_ocr=extract_text_ocr(scanned_pdf_path)
-    output_txt_path="text_output.txt"
+    #extracted_text_from_ocr=extract_text_ocr(scanned_pdf_path)
+    output_txt_path="D:\\termsheet_validation\\pdf_extraction\\text_output.txt"
 
     print("Extracted text: \n",extracted_text)
     save_text_to_file(extracted_text,output_txt_path,'w')
-    print("\n Extracted text using ocr: \n",extracted_text_from_ocr)
-    save_text_to_file(extracted_text_from_ocr,output_txt_path,'a')
+    #print("\n Extracted text using ocr: \n",extracted_text_from_ocr)
+    #save_text_to_file(extracted_text_from_ocr,output_txt_path,'a')
     
     tables=extract_tables_from_pdf(pdf_path)
     print(f"\n Tables extracted: {len(tables)}")
