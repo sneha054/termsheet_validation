@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/home.css">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="left">
+            <h2>Termsheet Validator</h2>
+        </div>
+        <div class="right">
+            <a href="/signup" class="Fst">SignUp</a>
+            <a href="/login" class="Snd">LogIn</a>
+        </div>
+    </nav>
+    <div class="container">
+       <h1>Welcome to Termsheet Validator</h1>
+       <p>Upload and validate your termsheets in PDF, Excel, Word, or EML format.</p>
+
+    {{#if Firstname}}
+       <p>Hello, {{Firstname}}! <a href="/home">Go to Dashboard</a></p>
+    {{/if}}
+    </div>
+
+</body>
+</html>
