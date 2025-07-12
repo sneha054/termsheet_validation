@@ -14,8 +14,7 @@
             <h2>Termsheet Validator</h2>
         </div>
         <div class="right">
-            <a href="/signup" class="Fst">SignUp</a>
-            <a href="/login" class="Snd">LogIn</a>
+            <span class="username">{{username}}</span>
         </div>
     </nav>
     <div class="container">
@@ -23,7 +22,7 @@
                 <h1>File Upload</h1>
         </div>
         <div>
-            <p>You can upload pdf, xls, doc or zip file</p>
+            <p>Hey User ! You can upload your termsheets in pdf,excel,word docunment and eml format</p>
         </div>
         <form action="/submitform" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="email" value="{{Email}}">
@@ -37,7 +36,9 @@
                         <input type="submit" class="btn">
                     </div>
                 </div>
-            
+            {{#if successMessage}}
+  <p style="color:green;">{{successMessage}}</p>
+{{/if}}
         </form>
     </div>
 
