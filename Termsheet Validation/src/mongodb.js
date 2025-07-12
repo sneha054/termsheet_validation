@@ -1,5 +1,5 @@
 const mongoose=require("mongoose")
-mongoose.connect("mongodb://localhost:27017/TermsheetValidation")
+mongoose.connect("mongodb+srv://{USERNAME}:{PASSWORD}@termsheetvalidation.tpgunvl.mongodb.net/")
 .then(()=>{
     console.log("MongoDB is connected!")
 })
