@@ -39,7 +39,7 @@ app.set("views", templatePath);
 const USERNAME=process.env.USERNAME
 const PASSWORD=process.env.PASSWORD
 // Mongo URI
-const mongoURI = "mongodb+srv://Pavankumar:Bvnspk%401185@termsheetvalidation.tpgunvl.mongodb.net/";
+const mongoURI = "mongodb+srv://${USERNAME}:${PASSWORD}@termsheetvalidation.tpgunvl.mongodb.net/";
 const client = new MongoClient(mongoURI);
 
 // DB Connection
